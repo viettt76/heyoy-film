@@ -89,6 +89,7 @@ function ListMovies({ keyword }) {
     <div className={clsx(styles.wrapper)}>
       <div>{slides}</div>
       <ReactPaginate
+        className='d-flex justify-content-center'
         breakLabel='...'
         nextLabel='next >'
         onPageChange={handlePageClick}

@@ -152,6 +152,10 @@ function MovieListLayout() {
           })}
         </div>
         <ReactPaginate
+          className={clsx(
+            'd-flex justify-content-center pagination fz-16',
+            styles['page-wrapper']
+          )}
           breakLabel='...'
           nextLabel='next >'
           onPageChange={handlePageClick}

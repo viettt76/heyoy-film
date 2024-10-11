@@ -34,6 +34,12 @@
     margin: 7px 13px;
 }
 
+.page-wrapper {
+    :global(.page-link) {
+        font-size: 1.6rem;
+    }
+}
+
 @media (max-width: 739px) {
     .wrapper {
         .title {
