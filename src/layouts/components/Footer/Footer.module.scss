@@ -1,0 +1,43 @@
+.wrapper {
+    background-color: var(--background-color);
+    margin-top: 300px;
+    padding-bottom: 30px;
+    color: #fff;
+}
+
+.social {
+    margin-left: 132px;
+    margin-bottom: 20px;
+}
+
+.socialIcon {
+    margin: 8px 15px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contentMember {
+    display: flex;
+    flex-direction: column;
+}
+
+.contentLink {
+    display: block;
+    color: #888;
+    font-size: 1.4rem;
+    padding: 5px 8px;
+}
+
+.copyRight {
+    margin-left: 150px;
+}
+
+.copyRightLink {
+    font-size: 1.4rem;
+    color: #888;
+}

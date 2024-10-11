@@ -1,0 +1,29 @@
+.popper {
+    top: 2px;
+    display: flex;
+    align-items: center;
+    padding: 7.8px 3.8px;
+    color: #fff;
+    background-color: #fff !important;
+    width: 300px;
+}
+
+.content {
+    width: 100%;
+    color: #000;
+    background-color: #fff;
+    font-size: 1.6rem;
+}
+
+.select {
+    height: 36px;
+    width: 100%;
+    margin-top: 16px;
+    padding: 6px 12px;
+    background-color: #e4e7eb;
+    font-size: 1.6rem;
+
+    &:hover {
+        background-color: #ced3db;
+    }
+}

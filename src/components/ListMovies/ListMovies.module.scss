@@ -1,0 +1,24 @@
+.wrapper {
+    padding-top: 83px;
+    margin-inline: 30px;
+    position: relative;
+    z-index: 9;
+}
+
+.poster {
+    display: inline-flex;
+    gap: 0.8vw;
+    height: 221.75px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}

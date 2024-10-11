@@ -1,0 +1,81 @@
+// Fonts embedded in
+@font-face {
+    font-family: Netflix Sans;
+    src: url('/assets/fonts/NetflixSans_W_Rg.woff2');
+}
+
+:root {
+    --font-family: 'Netflix Sans', sans-serif;
+    --scroll-grey: 219, 219, 219;
+    --text-color: #000;
+    --primary-color: #01b4e4;
+    --background-color: #141414;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    background-color: var(--background-color);
+}
+
+#root {
+    min-height: 100vh;
+    width: 100%;
+}
+
+// Scroll bar
+.k-tooltip::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.k-tooltip::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--scroll-grey), 1);
+    border-radius: 20px;
+}
+.k-tooltip::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+// Tag
+select,
+button,
+input,
+[tabindex] {
+    font-family: var(--font-family);
+    outline: none;
+    border: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+dl,
+ol,
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}

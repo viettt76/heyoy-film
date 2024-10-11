@@ -1,0 +1,196 @@
+.mr24 {
+    margin-right: 24px;
+}
+
+.popupMovie {
+    width: 292px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    position: absolute;
+    top: -246px;
+    background-color: #141414;
+}
+
+.popupMovie.firstChild {
+    transform: translateX(calc(-30% + 6px));
+}
+
+.popupMovie.lastChild {
+    transform: translateX(calc(-80% + 28px));
+}
+
+.posterTrailer {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.posterInfo {
+    width: 100%;
+    position: absolute;
+    top: 143px;
+    padding: 0 8px;
+    background: linear-gradient(
+        0deg,
+        #141414 59%,
+        hsla(0, 0%, 8%, 0.972) 76%,
+        hsla(0, 0%, 8%, 0.552) 84%,
+        hsla(0, 0%, 8%, 0)
+    );
+    box-shadow: 3px 18px 14px 0 rgba(0, 0, 0, 0.6);
+}
+
+.posterTitle {
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controlsLeft {
+    display: flex;
+    align-items: center;
+}
+
+.voted {
+    display: inline-block;
+    margin-top: 7px;
+    margin-right: 24px;
+    font-size: 1.6rem;
+    color: #46d369;
+}
+
+.genresMovie {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+
+    .genreItem {
+        margin-right: 8px;
+    }
+}
+
+// Nếu muốn hiển thị 1 nửa video đầu tiên ở slide movie tiếp theo thì set width: 12vw
+.moviePoster {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+        animation: fadeOut linear 0.6s;
+    }
+
+    img {
+        height: auto;
+        max-width: 12.82vw;
+    }
+}
+
+.modalCloseBtn {
+    z-index: 1;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-radius: 50%;
+    padding: 9px;
+    opacity: 1;
+
+    .modalCloseIcon {
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        fill: currentcolor;
+        flex-shrink: 0;
+        transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        font-size: 40px;
+        color: #fff;
+    }
+}
+
+.modalBackdrop {
+    height: 32vw;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    background-position: 50%;
+    background-size: cover;
+    bottom: 0;
+    color: #fff;
+    position: relative;
+}
+
+.modalBotCover {
+    background: linear-gradient(0deg, #181818, transparent 50%);
+    background-color: transparent;
+    background-position: 0 top;
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    opacity: 1;
+    position: absolute;
+    height: 32vw;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.nameControl {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    z-index: 10;
+
+    h1 {
+        font-size: 3.2rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+    }
+}
+
+.modalInfo {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    margin-bottom: 60px;
+}
+
+.modalInfoLeft {
+    margin-right: 53px;
+    font-size: 1.4784rem;
+
+    .voted {
+        margin-bottom: 4px;
+        margin-left: 3px;
+    }
+}
+
+.modalInfoRight {
+    margin-top: 8px;
+    font-size: 1.232rem;
+}
+
+.grayText {
+    color: #808080;
+}
+
+@media (max-width: 739px) {
+    .moviePoster {
+        img {
+            max-width: 30vw;
+        }
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    .moviePoster {
+        img {
+            max-width: 18.22vw;
+        }
+    }
+}

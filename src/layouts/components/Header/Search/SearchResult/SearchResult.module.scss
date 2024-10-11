@@ -1,0 +1,23 @@
+.searchResult {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #333;
+    border-bottom: none;
+    padding: 5px 40px;
+    color: #000;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f8f9fa;
+    }
+}
+
+.searchIcon {
+    width: 17px;
+    height: 17px;
+    margin-right: 6px;
+}
+
+.name {
+    font-weight: 400;
+}

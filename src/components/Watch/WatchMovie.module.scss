@@ -1,0 +1,19 @@
+.video {
+    margin-top: 64px;
+    width: 80vw;
+    height: 88vh;
+}
+
+@media (max-width: 739px) {
+    .video {
+        width: 100vw;
+        height: 80vh;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    .video {
+        width: 100vw;
+        height: 85vh;
+    }
+}

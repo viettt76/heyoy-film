@@ -1,0 +1,70 @@
+// Tippy
+.tippy-arrow {
+    color: currentColor;
+}
+
+.tippy-content {
+    width: 100%;
+}
+
+// Carousel
+.carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 20px;
+        width: 30px;
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 221.75px;
+    }
+
+    .carousel-control-prev {
+        left: -30px;
+    }
+
+    .carousel-control-next {
+        right: -27px;
+    }
+}
+
+// Modal
+.modal {
+    z-index: 999999999999999999999999999999999;
+}
+
+.modal-backdrop {
+    z-index: 9999999999999999999999999;
+}
+
+.modal-content {
+    margin-top: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 0;
+}
+
+.modal-body {
+    padding: 0 50px;
+    background-color: var(--background-color);
+    color: #fff;
+    border: none;
+}
+
+// React paginate
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.page-link {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.6rem;
+}
