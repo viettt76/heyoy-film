@@ -36,7 +36,7 @@ interface WatchHistory {
     >;
 }
 
-export const HISTORY_KEY = 'watchHistory';
+const HISTORY_KEY = 'watchHistory';
 
 // Get history from localstorage
 export const getWatchHistory = (): Record<string, WatchHistory> => {
