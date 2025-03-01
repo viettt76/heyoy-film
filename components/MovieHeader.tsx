@@ -90,7 +90,7 @@ export default function MovieHeader() {
     return (
         <div ref={parentRef} className="w-full">
             <div ref={headerRef} className="h-16 bg-[#0a0a0a] shadow-sm fixed top-0 left-0 z-50" style={{ width }}>
-                <div className="absolute top-0 left-2 h-full flex items-center justify-center">
+                <div className="absolute top-0 left-2 sm:left-3 md:left-4 xl:left-5 h-full flex items-center justify-center">
                     <AlignJustify className="text-white" onClick={handleShowSidebarModal} />
                 </div>
                 {isOpenSidebarModal && (
