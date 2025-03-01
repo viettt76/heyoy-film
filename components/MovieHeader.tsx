@@ -13,6 +13,7 @@ import { searchMovieService } from '@/lib/services/movieService';
 import { BaseMovieData, MovieType } from '@/app/dataType';
 import useClickOutside from '@/hooks/useClickOutside';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
 
 export default function MovieHeader() {
     const { theme, setTheme } = useTheme();
@@ -38,14 +39,14 @@ export default function MovieHeader() {
 
     const searchRef = useRef<HTMLDivElement | null>(null);
 
-    const [popoverSide, setPopoverSide] = useState<'right' | 'bottom'>('right');
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const updateSide = () => {
             if (parentRef.current && headerRef.current) {
                 setWidth(parentRef.current.offsetWidth);
             }
-            setPopoverSide(window.innerWidth < 576 ? 'bottom' : 'right');
+            setIsMobile(window.innerWidth < 576 ? true : false);
         };
 
         updateSide();
@@ -113,7 +114,7 @@ export default function MovieHeader() {
                                     </div>
                                 </PopoverTrigger>
                                 <PopoverContent
-                                    side={popoverSide}
+                                    side={isMobile ? 'bottom' : 'right'}
                                     align="start"
                                     className="bg-[#2d2d2d] border-[#2d2d2d] border w-fit px-4 py-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"
                                 >
@@ -136,7 +137,7 @@ export default function MovieHeader() {
                                     </div>
                                 </PopoverTrigger>
                                 <PopoverContent
-                                    side={popoverSide}
+                                    side={isMobile ? 'bottom' : 'right'}
                                     align="start"
                                     className="bg-[#2d2d2d] border-[#2d2d2d] border w-fit px-4 py-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"
                                 >
@@ -183,7 +184,13 @@ export default function MovieHeader() {
                         />
                         <MagnifyingGlass className="text-black" />
                         {searchResult.movies.length > 0 && showSearchResult && (
-                            <div className="absolute top-[calc(100%+0.3rem)] left-0 right-0 py-1 flex flex-col bg-white rounded-sm shadow-all-sides">
+                            <div
+                                className={`py-1 flex flex-col bg-white rounded-sm shadow-all-sides ${
+                                    isMobile
+                                        ? 'fixed top-[calc(3.8rem)] left-2 right-2 '
+                                        : 'absolute top-[calc(100%+0.3rem)] left-0 right-0'
+                                }`}
+                            >
                                 {searchResult.totalItems > 0 && (
                                     <Link
                                         href={`/search?keyword=${searchValue}`}
