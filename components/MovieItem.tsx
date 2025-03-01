@@ -101,14 +101,13 @@ export function MovieItem({ movieId, name, slug, thumbUrl, type, isFirst, isLast
         let timer: any;
 
         const startPress = () => {
-            timer = setTimeout(() => setShowTrailer(true), 500); // Giảm thời gian để trải nghiệm mượt hơn
+            timer = setTimeout(() => setShowTrailer(true), 500);
         };
 
         const endPress = () => {
             clearTimeout(timer);
         };
 
-        // Đóng tooltip khi click vào link
         const handleClick = () => {
             setShowTrailer(false);
         };
@@ -142,7 +141,7 @@ export function MovieItem({ movieId, name, slug, thumbUrl, type, isFirst, isLast
                     </TooltipTrigger>
                     <TooltipContent
                         className={cn(
-                            'bg-black absolute -translate-x-1/2 w-96 h-[17rem]',
+                            'bg-black absolute -translate-x-1/2 max-w-96 w-[calc(100vw-20px)] h-[17rem]',
                             isFirst && '-translate-x-1/4',
                             isLast && '-translate-x-3/4',
                         )}

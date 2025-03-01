@@ -14,7 +14,7 @@ export default function MovieRow({ title, movieList, className }: MovieRowProps)
     const moviesPerSlide = useMoviesPerSlide();
 
     return (
-        <div className={cn('px-10', className)}>
+        <div className={cn('px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-10', className)}>
             <div className="text-2xl font-bold text-white">{title}</div>
             <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 mt-2">
                 <Carousel indicators={false} slide={false} draggable={false}>

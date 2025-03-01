@@ -58,7 +58,7 @@ export default function MoviesByCountry() {
     }, [country, page]);
 
     return (
-        <div className="px-10 pt-6">
+        <div className="px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-10 pt-6">
             <div className="text-orange-400 text-2xl">Phim quốc gia {data.title}</div>
             <div
                 className={`grid gap-x-2 gap-y-4 mt-2`}

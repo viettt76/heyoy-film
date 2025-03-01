@@ -8,11 +8,11 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { AlignJustify, ChevronRight } from 'lucide-react';
 import { Drawer } from 'flowbite-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import useDebounce from '@/hooks/useDebounce';
 import { searchMovieService } from '@/lib/services/movieService';
 import { BaseMovieData, MovieType } from '@/app/dataType';
 import useClickOutside from '@/hooks/useClickOutside';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
 export default function MovieHeader() {
     const { theme, setTheme } = useTheme();
@@ -90,7 +90,7 @@ export default function MovieHeader() {
     return (
         <div ref={parentRef} className="w-full">
             <div ref={headerRef} className="h-16 bg-[#0a0a0a] shadow-sm fixed top-0 left-0 z-50" style={{ width }}>
-                <div className="absolute top-0 left-5 h-full flex items-center justify-center">
+                <div className="absolute top-0 left-2 h-full flex items-center justify-center">
                     <AlignJustify className="text-white" onClick={handleShowSidebarModal} />
                 </div>
                 {isOpenSidebarModal && (
@@ -99,76 +99,75 @@ export default function MovieHeader() {
                         onClose={handleCloseSidebarModal}
                         className="bg-[#0a0a0a] border-r border-[#2d2d2d]"
                     >
-                        <Drawer.Items>
-                            <Link href="/favorites" className="text-white mb-3 block" onClick={handleCloseSidebarModal}>
+                        <Drawer.Items className="flex flex-col gap-y-3">
+                            <Link href="/favorites" className="text-white block" onClick={handleCloseSidebarModal}>
                                 Phim yêu thích
                             </Link>
-                            <TooltipProvider>
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <div className="text-white flex items-center w-fit">
-                                            Thể loại <ChevronRight />
-                                        </div>
-                                    </TooltipTrigger>
-
-                                    <TooltipContent
-                                        side="right"
-                                        align="start"
-                                        className="bg-[#2d2d2d] border-[#2d2d2d] border"
-                                    >
-                                        <div className="px-2 py-1 grid grid-cols-6 gap-4">
-                                            {JSON.parse(sessionStorage.getItem('genreList') ?? '[]').map((g: any) => (
-                                                <Link
-                                                    href={`/genre/${g.slug}`}
-                                                    className="text-white hover:text-orange-400"
-                                                    key={`genre-${g.slug}`}
-                                                    onClick={handleCloseSidebarModal}
-                                                >
-                                                    {g.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
-                            <TooltipProvider>
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <div className="text-white flex items-center w-fit mt-3">
-                                            Quốc gia <ChevronRight />
-                                        </div>
-                                    </TooltipTrigger>
-
-                                    <TooltipContent
-                                        side="right"
-                                        align="start"
-                                        className="bg-[#2d2d2d] border-[#2d2d2d] border"
-                                    >
-                                        <div className="px-2 py-1 grid grid-cols-6 gap-4">
-                                            {JSON.parse(sessionStorage.getItem('countryList') ?? '[]').map((g: any) => (
-                                                <Link
-                                                    href={`/country/${g.slug}`}
-                                                    className="text-white hover:text-orange-400"
-                                                    key={`country-${g.slug}`}
-                                                    onClick={handleCloseSidebarModal}
-                                                >
-                                                    {g.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
+                            <Popover>
+                                <PopoverTrigger asChild>
+                                    <div className="text-white flex items-center w-fit">
+                                        Thể loại <ChevronRight />
+                                    </div>
+                                </PopoverTrigger>
+                                <PopoverContent
+                                    side="right"
+                                    align="start"
+                                    className="bg-[#2d2d2d] border-[#2d2d2d] border w-fit px-4 py-2 grid grid-cols-6 gap-4"
+                                >
+                                    {JSON.parse(sessionStorage.getItem('genreList') ?? '[]').map((g: any) => (
+                                        <Link
+                                            href={`/genre/${g.slug}`}
+                                            className="text-white hover:text-orange-400 text-sm"
+                                            key={`genre-${g.slug}`}
+                                            onClick={handleCloseSidebarModal}
+                                        >
+                                            {g.name}
+                                        </Link>
+                                    ))}
+                                </PopoverContent>
+                            </Popover>
+                            <Popover>
+                                <PopoverTrigger asChild>
+                                    <div className="text-white flex items-center w-fit">
+                                        Quốc gia <ChevronRight />
+                                    </div>
+                                </PopoverTrigger>
+                                <PopoverContent
+                                    side="right"
+                                    align="start"
+                                    className="bg-[#2d2d2d] border-[#2d2d2d] border w-fit px-4 py-2 grid grid-cols-6 gap-4"
+                                >
+                                    {JSON.parse(sessionStorage.getItem('countryList') ?? '[]').map((g: any) => (
+                                        <Link
+                                            href={`/country/${g.slug}`}
+                                            className="text-white hover:text-orange-400 text-sm"
+                                            key={`country-${g.slug}`}
+                                            onClick={handleCloseSidebarModal}
+                                        >
+                                            {g.name}
+                                        </Link>
+                                    ))}
+                                </PopoverContent>
+                            </Popover>
                         </Drawer.Items>
                     </Drawer>
                 )}
-                <div className="max-w-[1024px] h-full mx-auto flex items-center gap-x-6">
-                    <div className="w-64 flex items-center gap-x-4">
+                <div className="max-w-[1064px] px-10 h-full mx-auto flex items-center justify-between gap-x-2 sm:gap-x-3 md:gap-x-6">
+                    <div className="flex items-center">
                         <Link href="/" className="block w-fit">
-                            <Image src="/images/logo.png" width={50} height={50} alt="logo" />
+                            <Image
+                                className="w-8 sm:w-9 md:w-12 aspect-square"
+                                src="/images/logo.png"
+                                width={50}
+                                height={50}
+                                alt="logo"
+                            />
                         </Link>
                     </div>
-                    <div ref={searchRef} className="flex-1 flex rounded-3xl items-center pe-4 h-fit bg-white relative">
+                    <div
+                        ref={searchRef}
+                        className="max-w-96 flex-1 flex rounded-3xl items-center pe-4 h-fit bg-white relative"
+                    >
                         <input
                             value={searchValue}
                             className="w-full rounded-3xl px-4 py-2 border-none outline-none bg-transparent text-black"
@@ -206,7 +205,7 @@ export default function MovieHeader() {
                             </div>
                         )}
                     </div>
-                    <div className="flex items-center justify-end w-64">
+                    <div className="flex items-center justify-end">
                         <button
                             onClick={toggleTheme}
                             className="relative w-12 h-6 bg-muted rounded-full transition-all duration-300 flex items-center justify-between px-1"

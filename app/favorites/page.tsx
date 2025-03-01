@@ -24,7 +24,7 @@ export default function FavoriteMovies() {
     }, []);
 
     return (
-        <div className="px-10 pt-6">
+        <div className="px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-10 pt-6">
             <div className="text-orange-400 text-2xl">Phim yêu thích</div>
             {favoriteMovies.length > 0 ? (
                 <div
