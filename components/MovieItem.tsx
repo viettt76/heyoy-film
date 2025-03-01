@@ -101,14 +101,25 @@ export function MovieItem({ movieId, name, slug, thumbUrl, type, isFirst, isLast
         let timer: any;
 
         const startPress = () => {
-            timer = setTimeout(() => setShowTrailer(true), 1000); // 1 giây
+            timer = setTimeout(() => setShowTrailer(true), 500); // Giảm thời gian để trải nghiệm mượt hơn
         };
 
         const endPress = () => {
             clearTimeout(timer);
         };
 
-        return { onMouseDown: startPress, onMouseUp: endPress, onTouchStart: startPress, onTouchEnd: endPress };
+        // Đóng tooltip khi click vào link
+        const handleClick = () => {
+            setShowTrailer(false);
+        };
+
+        return {
+            onMouseDown: startPress,
+            onMouseUp: endPress,
+            onTouchStart: startPress,
+            onTouchEnd: endPress,
+            onClick: handleClick,
+        };
     };
 
     return (
