@@ -133,9 +133,9 @@ export default function MovieHeader() {
                                     </div>
                                 </PopoverTrigger>
                                 <PopoverContent
-                                    side="right"
+                                    side="bottom"
                                     align="start"
-                                    className="bg-[#2d2d2d] border-[#2d2d2d] border w-fit px-4 py-2 grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"
+                                    className="bg-[#2d2d2d] border-[#2d2d2d] border w-fit px-4 py-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"
                                 >
                                     {JSON.parse(sessionStorage.getItem('countryList') ?? '[]').map((g: any) => (
                                         <Link
