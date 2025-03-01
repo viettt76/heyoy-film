@@ -13,7 +13,6 @@ import { searchMovieService } from '@/lib/services/movieService';
 import { BaseMovieData, MovieType } from '@/app/dataType';
 import useClickOutside from '@/hooks/useClickOutside';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { cn } from '@/lib/utils';
 
 export default function MovieHeader() {
     const { theme, setTheme } = useTheme();
