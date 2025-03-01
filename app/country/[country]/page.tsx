@@ -60,7 +60,12 @@ export default function MoviesByCountry() {
     return (
         <div className="px-10 pt-6">
             <div className="text-orange-400 text-2xl">Phim quốc gia {data.title}</div>
-            <div className={`grid grid-cols-${moviesPerSlide} gap-x-2 gap-y-4 mt-2`}>
+            <div
+                className={`grid gap-x-2 gap-y-4 mt-2`}
+                style={{
+                    gridTemplateColumns: `repeat(${moviesPerSlide}, minmax(0, 1fr))`,
+                }}
+            >
                 {data.movies.map((m, index) => {
                     return (
                         <MovieItem

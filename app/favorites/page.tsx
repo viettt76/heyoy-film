@@ -27,7 +27,12 @@ export default function FavoriteMovies() {
         <div className="px-10 pt-6">
             <div className="text-orange-400 text-2xl">Phim yêu thích</div>
             {favoriteMovies.length > 0 ? (
-                <div className={`grid grid-cols-${moviesPerSlide} gap-x-2 gap-y-4 mt-2`}>
+                <div
+                    className={`grid gap-x-2 gap-y-4 mt-2`}
+                    style={{
+                        gridTemplateColumns: `repeat(${moviesPerSlide}, minmax(0, 1fr))`,
+                    }}
+                >
                     {favoriteMovies.map((m, index) => {
                         return (
                             <MovieItem

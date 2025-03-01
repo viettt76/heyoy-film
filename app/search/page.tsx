@@ -57,7 +57,12 @@ export default function SearchMovie() {
     return (
         <div className="px-10 pt-6">
             <div className="text-orange-400 text-2xl">Tìm kiếm &quot;{keyword}&quot;</div>
-            <div className={`grid grid-cols-${moviesPerSlide} gap-x-2 gap-y-4 mt-2`}>
+            <div
+                className={`grid gap-x-2 gap-y-4 mt-2`}
+                style={{
+                    gridTemplateColumns: `repeat(${moviesPerSlide}, minmax(0, 1fr))`,
+                }}
+            >
                 {results.movies.map((m, index) => {
                     return (
                         <MovieItem
