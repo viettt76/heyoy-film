@@ -38,18 +38,21 @@ export default function MovieHeader() {
 
     const searchRef = useRef<HTMLDivElement | null>(null);
 
+    const [popoverSide, setPopoverSide] = useState<'right' | 'bottom'>('right');
+
     useEffect(() => {
-        const updateWidth = () => {
+        const updateSide = () => {
             if (parentRef.current && headerRef.current) {
                 setWidth(parentRef.current.offsetWidth);
             }
+            setPopoverSide(window.innerWidth < 576 ? 'bottom' : 'right');
         };
 
-        window.addEventListener('resize', updateWidth);
-        updateWidth();
+        updateSide();
+        window.addEventListener('resize', updateSide);
 
         return () => {
-            window.removeEventListener('resize', updateWidth);
+            window.removeEventListener('resize', updateSide);
         };
     }, []);
 
@@ -110,7 +113,7 @@ export default function MovieHeader() {
                                     </div>
                                 </PopoverTrigger>
                                 <PopoverContent
-                                    side="bottom"
+                                    side={popoverSide}
                                     align="start"
                                     className="bg-[#2d2d2d] border-[#2d2d2d] border w-fit px-4 py-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"
                                 >
@@ -133,7 +136,7 @@ export default function MovieHeader() {
                                     </div>
                                 </PopoverTrigger>
                                 <PopoverContent
-                                    side="bottom"
+                                    side={popoverSide}
                                     align="start"
                                     className="bg-[#2d2d2d] border-[#2d2d2d] border w-fit px-4 py-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"
                                 >
