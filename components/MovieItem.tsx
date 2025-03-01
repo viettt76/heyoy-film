@@ -209,7 +209,7 @@ export function MovieItem({ movieId, name, slug, thumbUrl, type, isFirst, isLast
                             className="absolute top-2 right-2 rounded-full w-7 h-7 bg-white/80 flex items-center justify-center cursor-pointer"
                             onClick={() => setShowDetail(false)}
                         >
-                            <X className="text-black" />
+                            <X className="text-black" onClick={() => setShowDetail(false)} />
                         </div>
                         <div className="absolute left-0 right-0 top-0 w-full h-[28rem] bg-gradient-to-t from-[#181818] to-transparent opacity-60 bg-repeat-x bg-[0_top] bg-[length:100%_100%]"></div>
                         {movieInfo?.posterUrl && (

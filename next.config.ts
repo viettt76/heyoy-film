@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
     images: {
         domains: ['img.ophim.live'],
     },
-    output: 'export',
 };
 
 export default nextConfig;
