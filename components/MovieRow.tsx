@@ -20,7 +20,13 @@ export default function MovieRow({ title, movieList, className }: MovieRowProps)
                 <Carousel indicators={false} slide={false} draggable={false}>
                     {[...Array(Math.ceil(movieList.length / moviesPerSlide)).keys()].map((i) => {
                         return (
-                            <div className={`grid grid-cols-${moviesPerSlide} gap-x-2`} key={`slide-${i}`}>
+                            <div
+                                className={`grid gap-x-2`}
+                                key={`slide-${i}`}
+                                style={{
+                                    gridTemplateColumns: `repeat(${moviesPerSlide}, minmax(0, 1fr))`,
+                                }}
+                            >
                                 {movieList.slice(i * moviesPerSlide, (i + 1) * moviesPerSlide).map((movie, index) => {
                                     return (
                                         <MovieItem
