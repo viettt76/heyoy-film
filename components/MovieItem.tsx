@@ -131,6 +131,7 @@ export function MovieItem({ movieId, name, slug, thumbUrl, type, isFirst, isLast
                             {...(isMobile ? handleLongPress() : {})}
                         >
                             <Image
+                                loading="eager"
                                 className="w-full h-full object-cover cursor-pointer rounded-sm"
                                 src={thumbUrl}
                                 alt="thumb"
