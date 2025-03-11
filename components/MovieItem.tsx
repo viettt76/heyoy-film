@@ -130,13 +130,10 @@ export function MovieItem({ movieId, name, slug, thumbUrl, type, isFirst, isLast
                             href={type === MovieType.MOVIE ? `/${slug}` : type === MovieType.TV ? `/${slug}/1` : ''}
                             {...(isMobile ? handleLongPress() : {})}
                         >
-                            <Image
-                                loading="eager"
+                            <img
                                 className="w-full h-full object-cover cursor-pointer rounded-sm"
                                 src={thumbUrl}
                                 alt="thumb"
-                                width={2000}
-                                height={2000}
                             />
                         </Link>
                     </TooltipTrigger>
